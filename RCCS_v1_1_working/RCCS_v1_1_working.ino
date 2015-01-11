@@ -140,14 +140,17 @@ void htmlroutine()
            if (readString.indexOf("?button1on") >0){  //if button ON condition is met
                AC_ON_routine();
                
-               client.println("GET / HTTP/1.0");
+               // redirect back to homepage
+               client.println("HTTP/1.1 302 Found");
+               client.println("Location: /");
                client.println();
            }
-
            else if (readString.indexOf("?button1off") >0){  //if button OFF condition is met
                AC_OFF_routine();
                
-               client.println("GET / HTTP/1.0");
+               // redirect back to homepage
+               client.println("HTTP/1.1 302 Found");
+               client.println("Location: /");
                client.println();
            }
            else
